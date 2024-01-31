@@ -17,12 +17,12 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """Put an item"""
         if key is not None and item is not None:
+            if key in self.cache_data:
+                self.cache_data.pop(key)
+
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 first = self.cache_data.popitem(last=False)[0]
                 print("DISCARD: {}".format(first))
-
-            if key in self.cache_data:
-                self.cache_data.pop(key)
 
             self.cache_data[key] = item
             self.cache_data.move_to_end(key)

@@ -28,6 +28,7 @@ class LRUCache(BaseCaching):
             self.cache_data.move_to_end(key)
 
     def get(self, key):
+        """get item"""
         if key is None or key not in self.cache_data:
             return None
 

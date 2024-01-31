@@ -1,20 +1,29 @@
 #!/usr/bin/env python3
 
-""" LFU caching """
+"""
+A class LFUCache that inherits from BaseCaching and is a caching system.
+"""
 
 BaseCaching = __import__("base_caching").BaseCaching
 from collections import defaultdict
 
 
 class LFUCache(BaseCaching):
-    """LFU class"""
+    """
+    LRUCache class.
+    """
 
     def __init__(self):
+        """
+        Initialize the LRUCache object.
+        """
         super().__init__()
         self.frequency = defaultdict(int)
 
     def put(self, key, item):
-        """put an item"""
+        """
+        Add or update an item in the cache.
+        """
         if key is not None and item is not None:
             if (
                 len(self.cache_data) >= BaseCaching.MAX_ITEMS
@@ -28,7 +37,9 @@ class LFUCache(BaseCaching):
             self.frequency[key] += 1
 
     def get(self, key):
-        "get the item"
+        """
+        Retrieve an item from the cache.
+        """
         if key in self.cache_data:
             self.frequency[key] += 1
             return self.cache_data[key]

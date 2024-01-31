@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" LRU caching """
+"""a class LRUCache that inherits from BaseCaching and is a caching system"""
 from collections import OrderedDict
 
 BaseCaching = __import__("base_caching").BaseCaching

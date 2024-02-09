@@ -33,7 +33,11 @@ def before_request():
     """
     before_request
     """
-    g.user = get_user()
+    try:
+        g.user = get_user()
+        print(f"===========>{g.user}")
+    except:
+        None
 
 
 def get_user():

@@ -8,7 +8,7 @@ from flask_babel import Babel, _
 
 class Config:
     """
-    Config
+    Config class
     """
 
     LANGUAGES = ["en", "fr"]
@@ -24,7 +24,7 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale():
     """
-    get_locale
+    Get locale function
     """
     lang_code = request.args.get("locale")
     return lang_code
@@ -32,7 +32,7 @@ def get_locale():
 
 @app.route("/")
 def index():
-    """index"""
+    """Index function"""
     return render_template(
         "4-index.html",
         home_title=_("home_title"),

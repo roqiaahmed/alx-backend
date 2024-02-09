@@ -15,7 +15,7 @@ users = {
 
 class Config:
     """
-    Config
+    Config class
     """
 
     LANGUAGES = ["en", "fr"]
@@ -31,7 +31,7 @@ babel = Babel(app)
 @app.before_request
 def before_request():
     """
-    before_request
+    Before request function
     """
     try:
         g.user = get_user()
@@ -42,7 +42,7 @@ def before_request():
 
 def get_user():
     """
-    get_user
+    Get user function
     """
     login_id = request.args.get("login_as")
     if login_id:
@@ -53,7 +53,7 @@ def get_user():
 @babel.localeselector
 def get_locale():
     """
-    get_locale
+    Get locale function
     """
     lang_code = request.args.get("locale")
     return lang_code
@@ -61,7 +61,7 @@ def get_locale():
 
 @app.route("/")
 def index():
-    """index"""
+    """Index function"""
     return render_template(
         "5-index.html",
         home_title=_("home_title"),
